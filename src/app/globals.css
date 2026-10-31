@@ -235,6 +235,12 @@ body {
   }
 }
 
+/* PasswordInput has its own show/hide eye; hide Edge's built-in one */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
 .number-input {
   -moz-appearance: textfield;
 }
