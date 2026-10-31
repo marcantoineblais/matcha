@@ -19,6 +19,8 @@ ENV HOSTNAME=0.0.0.0
 
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
+# Standalone output leaves public/ out (the manifest's icons)
+COPY --from=builder /app/public ./public
 COPY --from=builder /app/dist-servers ./dist-servers
 COPY --from=builder /app/package.json /app/pnpm-lock.yaml /app/pnpm-workspace.yaml ./
 
