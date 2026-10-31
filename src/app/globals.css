@@ -1,30 +1,32 @@
 @import "tailwindcss";
 
-/* Matcha's look: Mochi's family (pastels, rounded shapes, a mascot) brewed
-   green. Dark only: pastel colors on dark matcha tea. */
+/* Matcha's look: Mochi's family (pastels, rounded shapes, a mascot) with
+   matcha green as its brand. Dark only: near black with a hint of green,
+   bright text, and the green kept for what matters. */
 @theme {
   --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
-  /* Base surfaces: dark matcha tea */
-  --color-background: #11160f;
-  --color-surface: #222b1f;
-  --color-surface-card: #192017;
-  --color-surface-elevated: #222b1f;
-  --color-surface-hover: #2c3828;
+  /* Base surfaces: near black, a hint of green */
+  --color-background: #090b0a;
+  --color-surface: #191e1b;
+  --color-surface-card: #111513;
+  --color-surface-elevated: #191e1b;
+  --color-surface-hover: #212823;
 
-  --color-border: #303d2c;
-  --color-border-strong: #3e4d39;
+  --color-border: #242b27;
+  --color-border-strong: #323b35;
 
-  --color-text: #f4f8ea;
-  --color-text-secondary: #b5c2aa;
-  --color-text-muted: #7b8a72;
+  /* Text: near white, the rest light enough to read at a glance */
+  --color-text: #f5f8f6;
+  --color-text-secondary: #bac4be;
+  --color-text-muted: #7f8a83;
   --color-text-hover: #ffffff;
 
   /* Mochi's pastels, with Matcha's own greens */
-  --color-matcha: #b5e3a8;
-  --color-lime: #dcef9e;
-  --color-mint: #a3e4cc;
+  --color-matcha: #aef07e;
+  --color-lime: #e5fb9d;
+  --color-mint: #67e8c9;
   --color-sakura: #ffb3c7;
   --color-ube: #c8b4ff;
   --color-yuzu: #ffe08a;
@@ -33,8 +35,8 @@
 
   /* Brand */
   --color-primary: var(--color-matcha);
-  --color-primary-light: #cdeec2;
-  --color-primary-hover: #c6ebbb;
+  --color-primary-light: #c9f7a8;
+  --color-primary-hover: #c2f59b;
   --color-primary-foreground: var(--color-background);
   --color-primary-ring: color-mix(
     in srgb,
@@ -107,7 +109,7 @@
   --brand-gradient: linear-gradient(
     110deg,
     var(--color-lime),
-    var(--color-matcha) 50%,
+    var(--color-matcha) 45%,
     var(--color-mint)
   );
 }
@@ -145,17 +147,12 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* A soft green glow at the top of the app */
+/* A faint matcha glow at the top of the app, as in Mochi */
 .app-backdrop {
   background:
     radial-gradient(
       60rem 30rem at 15% -10%,
-      color-mix(in srgb, var(--color-matcha) 12%, transparent),
-      transparent 70%
-    ),
-    radial-gradient(
-      50rem 28rem at 90% -15%,
-      color-mix(in srgb, var(--color-mint) 8%, transparent),
+      color-mix(in srgb, var(--color-matcha) 6%, transparent),
       transparent 70%
     ),
     var(--color-background);

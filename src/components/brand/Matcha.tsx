@@ -1,4 +1,4 @@
-const INK = "#11160f";
+const INK = "#090b0a";
 
 /**
  * The matcha mascot: a bowl of whisked matcha, up to no good, its steam
@@ -11,7 +11,7 @@ export default function Matcha({ className }: { className?: string }) {
       {/* Steam, curled into horns */}
       <path
         d="M24 16.5c-3.5-1.5-5.5-5-4-10c1.5 3 3.5 4.5 6 4.8M40 16.5c3.5-1.5 5.5-5 4-10c-1.5 3-3.5 4.5-6 4.8"
-        stroke="#dcef9e"
+        stroke="#e5fb9d"
         strokeOpacity=".7"
         strokeWidth="2.2"
         strokeLinecap="round"
@@ -37,18 +37,18 @@ export default function Matcha({ className }: { className?: string }) {
       <ellipse cx="32" cy="27.4" rx="24" ry="7.3" fill="#d6dac6" />
 
       {/* The matcha inside, frothy with a swirl */}
-      <ellipse cx="32" cy="28.4" rx="22.5" ry="6.3" fill="#8cc77c" />
-      <ellipse cx="32" cy="28.2" rx="20.5" ry="5.4" fill="#c4eab8" />
+      <ellipse cx="32" cy="28.4" rx="22.5" ry="6.3" fill="#86d65c" />
+      <ellipse cx="32" cy="28.2" rx="20.5" ry="5.4" fill="#c3f2a0" />
       <path
         d="M22 28.5c3-2.6 9-3 12-1.2s1.5 3.6-2 3.4s-3.5-2.4-.5-2.9"
-        stroke="#9fd48f"
+        stroke="#9fe474"
         strokeWidth="1.6"
         strokeLinecap="round"
         fill="none"
       />
-      <circle cx="41" cy="27" r="1.2" fill="#e2f4cf" />
-      <circle cx="44" cy="29" r=".9" fill="#e2f4cf" />
-      <circle cx="19" cy="27.5" r=".9" fill="#e2f4cf" />
+      <circle cx="41" cy="27" r="1.2" fill="#e6fad6" />
+      <circle cx="44" cy="29" r=".9" fill="#e6fad6" />
+      <circle cx="19" cy="27.5" r=".9" fill="#e6fad6" />
 
       {/* The face: tapered brows over a glare, glints, a two-fang grin */}
       <g transform="translate(32 43)">

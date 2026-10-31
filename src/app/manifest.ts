@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Media files manager for Mochi",
     start_url: "/",
     display: "standalone",
-    background_color: "#11160f",
-    theme_color: "#11160f",
+    background_color: "#090b0a",
+    theme_color: "#090b0a",
     orientation: "portrait-primary",
     icons: [
       {
