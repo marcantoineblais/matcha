@@ -4,14 +4,26 @@ const INK = "#090b0a";
  * The matcha mascot: a bowl of whisked matcha, up to no good, its steam
  * curling into little horns. Mochi's mischievous companion. Used as the
  * logo, the loading indicator and empty states.
+ *
+ * steam: the horns' color; lime on the dark app, dark green on the bright
+ * mark (Mark). steamClassName lets the splash animate them.
  */
-export default function Matcha({ className }: { className?: string }) {
+export default function Matcha({
+  className,
+  steam = "#e5fb9d",
+  steamClassName,
+}: {
+  className?: string;
+  steam?: string;
+  steamClassName?: string;
+}) {
   return (
     <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
       {/* Steam, curled into horns */}
       <path
+        className={steamClassName}
         d="M24 16.5c-3.5-1.5-5.5-5-4-10c1.5 3 3.5 4.5 6 4.8M40 16.5c3.5-1.5 5.5-5 4-10c-1.5 3-3.5 4.5-6 4.8"
-        stroke="#e5fb9d"
+        stroke={steam}
         strokeOpacity=".7"
         strokeWidth="2.2"
         strokeLinecap="round"

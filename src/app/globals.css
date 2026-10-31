@@ -224,6 +224,195 @@ body {
   -webkit-backdrop-filter: blur(16px) saturate(140%);
 }
 
+/*
+ * Splash of the installed app (components/splash): the mark pops in with a
+ * squish, a ring locks onto it, its steam rises, then the name. It takes
+ * over from Android's own launch screen, on the same background_color.
+ */
+@utility splash {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  place-items: center;
+  overflow: hidden;
+  background-color: var(--color-background);
+  color: var(--color-text);
+
+  &[data-active] {
+    display: grid;
+  }
+
+  &[data-phase="outro"] {
+    pointer-events: none;
+    animation: splash-out 380ms cubic-bezier(0.4, 0, 1, 1) forwards;
+
+    & .splash-mark {
+      animation: splash-zoom 380ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    & .splash-ring {
+      animation: splash-release 380ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+  }
+}
+
+@utility splash-stage {
+  position: relative;
+}
+
+@utility splash-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 56rem;
+  height: 56rem;
+  translate: -50% -50%;
+  background-image: radial-gradient(
+    circle closest-side,
+    color-mix(in srgb, var(--color-matcha) 14%, transparent),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+@utility splash-mark {
+  position: relative;
+  width: 104px;
+  height: 104px;
+}
+
+@utility splash-icon {
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 18px 40px -12px
+    color-mix(in srgb, var(--color-matcha) 45%, transparent);
+  animation: splash-pop 700ms cubic-bezier(0.25, 0.8, 0.35, 1) 80ms both;
+}
+
+/* The ring that closes in around the mark */
+@utility splash-ring {
+  position: absolute;
+  inset: -16px;
+  border: 2px solid color-mix(in srgb, var(--color-matcha) 70%, transparent);
+  border-radius: 32%;
+  animation: splash-lock 760ms cubic-bezier(0.25, 0.8, 0.35, 1) 160ms both;
+}
+
+@utility splash-steam {
+  transform-box: fill-box;
+  transform-origin: bottom;
+  animation: splash-steam 520ms cubic-bezier(0.2, 0.8, 0.3, 1) 480ms both;
+}
+
+@utility splash-text {
+  position: absolute;
+  top: calc(100% + 44px);
+  left: 50%;
+  translate: -50% 0;
+  text-align: center;
+  white-space: nowrap;
+
+  & > * {
+    animation: splash-rise 450ms cubic-bezier(0.2, 0.8, 0.3, 1) 320ms both;
+  }
+
+  & > * + * {
+    animation-delay: 400ms;
+  }
+}
+
+@utility splash-name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  background-image: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility splash-tagline {
+  margin-top: 0.25rem;
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+@keyframes splash-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1.08, 0.94);
+  }
+  78% {
+    transform: scale(0.97, 1.03);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes splash-lock {
+  from {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(0.94);
+  }
+  78% {
+    transform: scale(1.03);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes splash-steam {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scaleY(0.6);
+  }
+}
+
+@keyframes splash-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes splash-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes splash-zoom {
+  to {
+    transform: scale(1.12);
+  }
+}
+
+@keyframes splash-release {
+  to {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes splash-fade {
+  from {
+    opacity: 0;
+  }
+}
+
 /* Blink animation for loading indicators */
 @keyframes blink {
   0%,
@@ -257,5 +446,18 @@ input[type="password"]::-ms-clear {
   *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+
+  /* Splash: fades only */
+  .splash :is(.splash-icon, .splash-ring, .splash-steam, .splash-text > *) {
+    animation: splash-fade 300ms ease-out both !important;
+  }
+
+  .splash[data-phase="outro"] {
+    animation: splash-out 300ms ease-in forwards !important;
+  }
+
+  .splash[data-phase="outro"] :is(.splash-mark, .splash-ring) {
+    animation: none !important;
   }
 }

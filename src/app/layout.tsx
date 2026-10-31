@@ -7,6 +7,7 @@ import Navigation, { MobileTabBar } from "../components/navigation/navigation";
 import { ToastProvider } from "../providers/ToastProvider";
 import { ModalProvider } from "../providers/ModalProvider";
 import MotionProvider from "../providers/motion-provider";
+import Splash from "../components/splash/Splash";
 
 export const metadata: Metadata = {
   title: "Matcha",
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body
         className={`h-lvh w-lvh font-sans ${figtree.variable} ${jetbrainsMono.variable}`}
       >
+        <Splash />
         <MotionProvider>
           <ModalProvider>
             <ToastProvider>
