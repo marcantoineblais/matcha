@@ -25,13 +25,13 @@ export default function Progress({
       aria-valuemax={100}
       aria-valuenow={Math.round(progress * 100)}
       className={twMerge(
-        "w-full bg-white/8 rounded-full h-1.5 overflow-hidden",
+        "w-full bg-white/10 rounded-full h-1.5 overflow-hidden",
         trackClassName,
       )}
     >
       <div
         className={twMerge(
-          "relative bg-primary h-full rounded-full transition-[width] duration-700 ease-out overflow-hidden",
+          "relative bg-brand h-full rounded-full transition-[width] duration-700 ease-out overflow-hidden",
           className,
         )}
         style={{ width: `${progress * 100}%` }}

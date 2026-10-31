@@ -15,7 +15,7 @@ export default function InfoBox({
   return (
     <div
       className={twMerge(
-        "rounded-xl bg-surface/60 border border-border px-3 py-2.5",
+        "rounded-2xl bg-background/60 border border-border px-3 py-2.5",
         className,
       )}
     >

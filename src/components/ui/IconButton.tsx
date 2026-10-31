@@ -60,7 +60,7 @@ export default function IconButton({
       disabled={isDisabled}
       onClick={onClick}
       className={twMerge(
-        "text-text-muted transition-[color,background-color,transform] duration-200 cursor-pointer active:scale-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-ring rounded-md",
+        "text-text-muted transition-[color,background-color,transform] duration-200 cursor-pointer active:scale-90 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-ring rounded-full",
         "disabled:opacity-40 disabled:text-text-muted disabled:hover:text-text-muted disabled:cursor-not-allowed disabled:active:scale-100",
         hoverClasses[color],
         className,

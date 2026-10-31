@@ -25,7 +25,7 @@ export default function SearchStatus() {
     <motion.div
       {...fadeInUp}
       role="status"
-      className="shrink-0 flex items-center gap-3 rounded-xl border border-border bg-surface-card px-3.5 py-2.5 text-xs"
+      className="shrink-0 flex items-center gap-3 rounded-2xl border border-border bg-surface-card px-3.5 py-2.5 text-xs"
     >
       <span className="flex gap-1" aria-hidden="true">
         {[0, 1, 2].map((i) => (

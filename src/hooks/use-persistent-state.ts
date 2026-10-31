@@ -10,7 +10,7 @@ import {
   useState,
 } from "react";
 
-const STORAGE_PREFIX = "jelly:";
+const STORAGE_PREFIX = "matcha:";
 
 export type PersistentStorage = "local" | "session";
 

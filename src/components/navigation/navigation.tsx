@@ -1,7 +1,5 @@
 "use client";
 
-import Logo from "@/src/assets/img/logo.png";
-import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRightArrowLeft,
@@ -21,6 +19,7 @@ import useModal from "@/src/hooks/useModal";
 import Button from "../ui/Button";
 import IconButton from "../ui/IconButton";
 import Modal from "../Modal";
+import Logo from "../brand/Logo";
 
 const HIDDEN_PATHS = ["/login", "/setup"];
 
@@ -64,20 +63,13 @@ export default function Navigation() {
         <div className="container-main h-14 px-4 flex items-center justify-between gap-4">
           <Link
             href="/"
-            className="flex items-center gap-2.5 shrink-0 group"
+            aria-label="Matcha"
+            className="flex items-center shrink-0 -ml-1"
             tabIndex={-1}
           >
-            <span className="relative size-9 rounded-xl overflow-hidden ring-1 ring-white/10 bg-surface-elevated transition-transform duration-300 group-hover:scale-105">
-              <Image
-                src={Logo}
-                alt="Jelly"
-                fill
-                sizes="36px"
-                className="object-cover"
-                loading="eager"
-              />
-            </span>
-            <span className="text-lg font-semibold tracking-tight">Jelly</span>
+            {/* Just the mascot where the desktop tabs leave little room. */}
+            <Logo className="sm:hidden md:inline-flex" />
+            <Logo compact className="hidden sm:inline-flex md:hidden" />
           </Link>
 
           {/* Desktop tabs */}

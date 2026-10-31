@@ -23,7 +23,7 @@ export default function ExpandButton({
       size="sm"
       onClick={onToggle}
       className={twJoin(
-        "size-8 rounded-lg flex items-center justify-center hover:bg-surface-hover",
+        "size-8 rounded-full flex items-center justify-center hover:bg-surface-hover",
         "transition-transform duration-300",
         isOpen && "rotate-180",
       )}

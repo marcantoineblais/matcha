@@ -58,7 +58,7 @@ export default function PasswordInput({
           icon={visible ? faEyeSlash : faEye}
           ariaLabel={visible ? "Hide password" : "Show password"}
           onClick={handleToggle}
-          className="size-7 rounded-lg flex items-center justify-center hover:bg-surface-hover"
+          className="size-7 rounded-full flex items-center justify-center hover:bg-surface-hover"
         />
       }
     >

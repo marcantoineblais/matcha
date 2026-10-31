@@ -31,7 +31,7 @@ Download and library paths are read from `config.json` (see `example.config.json
 
 On first visit, the app redirects to `/setup` to create your account (username + password). Credentials are stored in `AUTH_DATA_PATH` (default: `/data/auth/credentials.json`) with a bcrypt-hashed password.
 
-`JWT_SIGN_TOKEN` (or `COOKIE_SIGN_TOKEN`) is required for session cookies. UI preferences (sorting, download filters, selected tracker) are kept per browser in the `jelly-prefs` cookie.
+`JWT_SIGN_TOKEN` (or `COOKIE_SIGN_TOKEN`) is required for session cookies. UI preferences (sorting, download filters, selected tracker) are kept per browser in the `matcha-prefs` cookie.
 
 ### qBittorrent (Docker)
 

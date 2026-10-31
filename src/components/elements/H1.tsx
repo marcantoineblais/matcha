@@ -10,7 +10,7 @@ export default function H1({
   return (
     <h1
       className={twMerge(
-        "w-full text-center text-3xl font-bold tracking-tight text-gradient",
+        "w-full text-center text-3xl font-bold tracking-tight text-brand",
         className,
       )}
     >

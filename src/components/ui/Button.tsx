@@ -38,7 +38,7 @@ export default function Button({
   const colorClasses: Record<ButtonColor, string> = useMemo(
     () => ({
       primary:
-        "bg-primary text-primary-foreground shadow-btn hover:bg-primary-hover hover:shadow-glow focus-visible:ring-primary-ring disabled:hover:bg-primary disabled:hover:shadow-btn",
+        "bg-primary text-primary-foreground shadow-glow hover:bg-primary-hover focus-visible:ring-primary-ring disabled:hover:bg-primary disabled:shadow-none",
       secondary:
         "bg-secondary text-secondary-foreground shadow-btn hover:bg-secondary-hover focus-visible:ring-secondary/50 disabled:hover:bg-secondary",
       danger:
@@ -49,7 +49,7 @@ export default function Button({
         "bg-success text-success-foreground shadow-btn hover:bg-success-hover focus-visible:ring-success/50 disabled:hover:bg-success",
       info: "bg-info text-info-foreground shadow-btn hover:bg-info-hover focus-visible:ring-info/50 disabled:hover:bg-info",
       default:
-        "bg-surface-elevated text-text border border-border shadow-btn hover:bg-surface-hover hover:border-border-strong focus-visible:ring-border-strong disabled:hover:bg-surface-elevated",
+        "bg-surface-elevated text-text shadow-btn hover:bg-surface-hover focus-visible:ring-border-strong disabled:hover:bg-surface-elevated",
       ghost:
         "bg-transparent text-text-secondary hover:bg-surface-hover hover:text-text focus-visible:ring-border-strong",
     }),
@@ -78,7 +78,7 @@ export default function Button({
       {...props}
       disabled={isDisabled || isLoading || undefined}
       className={twMerge(
-        "relative rounded-xl min-w-16 cursor-pointer inline-flex items-center justify-center font-semibold overflow-hidden select-none",
+        "relative rounded-full min-w-16 cursor-pointer inline-flex items-center justify-center font-semibold overflow-hidden select-none",
         "transition-[background-color,box-shadow,transform,opacity,border-color] duration-200 active:scale-[0.97]",
         "focus:outline-none focus-visible:ring-2",
         colorClasses[color],

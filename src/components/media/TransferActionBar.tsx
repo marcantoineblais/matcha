@@ -50,7 +50,7 @@ export default function TransferActionBar({
       initial={{ y: 24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={springTransition}
-      className="glass rounded-2xl border border-border-strong shadow-2xl shadow-black/60 p-2 pl-3 flex items-center gap-2"
+      className="glass rounded-full border border-border shadow-2xl shadow-black/60 p-2 pl-4 flex items-center gap-2"
     >
       <div className="min-w-0 grow flex items-center gap-2 h-10">
         <AnimatePresence mode="wait" initial={false}>
@@ -67,7 +67,7 @@ export default function TransferActionBar({
                 icon={faXmark}
                 ariaLabel="Clear selection"
                 onClick={onClearSelection}
-                className="size-8 shrink-0 rounded-lg flex items-center justify-center bg-white/5 hover:bg-surface-hover"
+                className="size-8 shrink-0 rounded-full flex items-center justify-center bg-white/5 hover:bg-surface-hover"
               />
               <span className="text-sm font-semibold text-text whitespace-nowrap tabular-nums">
                 {selectedCount}

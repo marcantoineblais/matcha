@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { ReactNode } from "react";
 import Spinner from "../ui/Spinner";
+import Matcha from "../brand/Matcha";
 import { motion } from "framer-motion";
 import { fadeInUp } from "@/src/libs/motion";
 
@@ -34,14 +35,18 @@ export default function MediaListEmpty({
         <Spinner size="lg" />
       ) : (
         <>
+          {/* The mascot, with what's empty as a badge at its side */}
           <div className="relative">
-            <div className="absolute inset-0 rounded-3xl bg-primary/20 blur-2xl" />
-            <div className="relative size-16 rounded-2xl bg-surface-elevated border border-border-strong flex items-center justify-center shadow-card">
-              <FontAwesomeIcon icon={icon} className="text-2xl text-primary" />
-            </div>
+            <div className="absolute inset-2 rounded-full bg-primary/20 blur-2xl" />
+            <Matcha className="relative w-24" />
+            <span className="absolute bottom-1 -right-1 size-8 rounded-full bg-surface-elevated border border-border flex items-center justify-center shadow-card">
+              <FontAwesomeIcon icon={icon} className="text-xs text-primary" />
+            </span>
           </div>
           <div>
-            <h2 className="text-lg font-semibold text-text">{title}</h2>
+            <h2 className="text-lg font-bold tracking-tight text-text">
+              {title}
+            </h2>
             <p className="mt-1 text-sm text-text-muted max-w-xs">{message}</p>
           </div>
           {action}

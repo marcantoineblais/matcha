@@ -196,7 +196,7 @@ export default function MediaList({
       onClick={fetchFiles}
       isDisabled={isFilesLoading}
       className={twJoin(
-        "size-10 rounded-xl border border-border bg-surface-card flex items-center justify-center hover:bg-surface-hover",
+        "size-10 rounded-full border border-border bg-surface-card flex items-center justify-center hover:bg-surface-hover",
         isFilesLoading && "[&_svg]:animate-spin",
       )}
     />

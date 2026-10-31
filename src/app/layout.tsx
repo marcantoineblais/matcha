@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { inter, jetbrainsMono } from "@/src/fonts";
+import { figtree, jetbrainsMono } from "@/src/fonts";
 import ConfigProvider from "@/src/providers/config-provider";
 import SessionProvider from "@/src/providers/session-provider";
 import Navigation, { MobileTabBar } from "../components/navigation/navigation";
@@ -9,12 +9,12 @@ import { ModalProvider } from "../providers/ModalProvider";
 import MotionProvider from "../providers/motion-provider";
 
 export const metadata: Metadata = {
-  title: "Jelly",
-  description: "Media files manager for Jellyfin",
+  title: "Matcha",
+  description: "Media files manager for Mochi",
 };
 
 export const viewport: Viewport = {
-  themeColor: "#090d0c",
+  themeColor: "#11160f",
   colorScheme: "dark",
 };
 
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`h-lvh w-lvh font-sans ${inter.variable} ${jetbrainsMono.variable}`}
+        className={`h-lvh w-lvh font-sans ${figtree.variable} ${jetbrainsMono.variable}`}
       >
         <MotionProvider>
           <ModalProvider>

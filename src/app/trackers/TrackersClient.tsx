@@ -490,7 +490,7 @@ export default function TrackersClient({
                   color="danger"
                   onClick={handleDeleteClick}
                   ariaLabel="Delete tracker"
-                  className="shrink-0 size-10 rounded-xl border border-border bg-surface-elevated hover:bg-danger/10 hover:border-danger/40 flex justify-center items-center self-end"
+                  className="shrink-0 size-10 rounded-full border border-border bg-surface-elevated hover:bg-danger/10 hover:border-danger/40 flex justify-center items-center self-end"
                   icon={faTrash}
                 />
               )}

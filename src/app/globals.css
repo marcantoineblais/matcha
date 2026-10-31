@@ -1,67 +1,76 @@
 @import "tailwindcss";
 
+/* Matcha's look: Mochi's family (pastels, rounded shapes, a mascot) brewed
+   green. Dark only: pastel colors on dark matcha tea. */
 @theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-figtree), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
 
-  /* Base surfaces (dark theme) */
-  --color-background: #090d0c;
-  --color-surface: #18201e;
-  --color-surface-card: #111816;
-  --color-surface-elevated: #1a2320;
-  --color-surface-hover: #1f2a27;
+  /* Base surfaces: dark matcha tea */
+  --color-background: #11160f;
+  --color-surface: #222b1f;
+  --color-surface-card: #192017;
+  --color-surface-elevated: #222b1f;
+  --color-surface-hover: #2c3828;
 
-  --color-border: #25302d;
-  --color-border-strong: #34413d;
+  --color-border: #303d2c;
+  --color-border-strong: #3e4d39;
 
-  --color-text: #e8eeec;
-  --color-text-secondary: #b3bfbb;
-  --color-text-muted: #7a8884;
+  --color-text: #f4f8ea;
+  --color-text-secondary: #b5c2aa;
+  --color-text-muted: #7b8a72;
   --color-text-hover: #ffffff;
 
+  /* Mochi's pastels, with Matcha's own greens */
+  --color-matcha: #b5e3a8;
+  --color-lime: #dcef9e;
+  --color-mint: #a3e4cc;
+  --color-sakura: #ffb3c7;
+  --color-ube: #c8b4ff;
+  --color-yuzu: #ffe08a;
+  --color-ramune: #9fd8ff;
+  --color-momo: #ffc4a3;
+
   /* Brand */
-  --color-primary: #10b981;
-  --color-primary-light: #34d399;
-  --color-primary-hover: #34d399;
-  --color-primary-foreground: #03140d;
+  --color-primary: var(--color-matcha);
+  --color-primary-light: #cdeec2;
+  --color-primary-hover: #c6ebbb;
+  --color-primary-foreground: var(--color-background);
   --color-primary-ring: color-mix(
     in srgb,
     var(--color-primary) 45%,
     transparent
   );
 
-  --color-secondary: #38bdf8;
-  --color-secondary-hover: #7dd3fc;
-  --color-secondary-foreground: #04131c;
+  --color-secondary: var(--color-ube);
+  --color-secondary-hover: #d8caff;
+  --color-secondary-foreground: var(--color-background);
 
-  --color-info: #38bdf8;
-  --color-info-hover: #7dd3fc;
-  --color-info-foreground: #04131c;
+  --color-info: var(--color-ramune);
+  --color-info-hover: #bce4ff;
+  --color-info-foreground: var(--color-background);
 
-  --color-default: #8b9692;
-  --color-default-foreground: #e8eeec;
+  --color-default: var(--color-text-muted);
+  --color-default-foreground: var(--color-text);
 
-  --color-success: #38bdf8;
-  --color-success-hover: #7dd3fc;
-  --color-success-foreground: #04131c;
+  --color-success: var(--color-ramune);
+  --color-success-hover: #bce4ff;
+  --color-success-foreground: var(--color-background);
 
-  --color-warning: #f5b80b;
-  --color-warning-hover: #fcd34d;
-  --color-warning-foreground: #1c1300;
+  --color-warning: var(--color-yuzu);
+  --color-warning-hover: #ffeaad;
+  --color-warning-foreground: var(--color-background);
 
-  --color-danger: #f26b57;
-  --color-danger-light: #f8a194;
-  --color-danger-hover: #f98a79;
+  --color-danger: #ff8f9f;
+  --color-danger-light: #ffb3be;
+  --color-danger-hover: #ffa6b3;
   --color-danger-ring: color-mix(in srgb, var(--color-danger) 45%, transparent);
-  --color-danger-foreground: #1f0703;
+  --color-danger-foreground: var(--color-background);
 
   --shadow-btn:
-    0 1px 0 0 rgb(255 255 255 / 0.06) inset, 0 4px 14px -4px rgb(0 0 0 / 0.6);
-  --shadow-card:
-    0 1px 0 0 rgb(255 255 255 / 0.04) inset, 0 10px 30px -12px rgb(0 0 0 / 0.7);
-  --shadow-glow:
-    0 0 0 1px color-mix(in srgb, var(--color-primary) 35%, transparent),
-    0 8px 30px -6px color-mix(in srgb, var(--color-primary) 45%, transparent);
+    0 1px 0 0 rgb(255 255 255 / 0.05) inset, 0 4px 14px -6px rgb(0 0 0 / 0.6);
+  --shadow-card: 0 12px 32px -16px rgb(0 0 0 / 0.75);
+  --shadow-glow: 0 8px 24px -10px var(--color-primary);
 
   /* Torrent status colors */
   --color-status-downloading: var(--color-success);
@@ -72,6 +81,7 @@
   --color-status-error: var(--color-danger);
 
   --animate-shimmer: shimmer 1.8s linear infinite;
+  --animate-float: float 3s ease-in-out infinite;
 
   @keyframes shimmer {
     from {
@@ -81,10 +91,25 @@
       background-position: 200% 0;
     }
   }
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) scale(1, 1);
+    }
+    50% {
+      transform: translateY(-6px) scale(1.03, 0.97);
+    }
+  }
 }
 
 :root {
   color-scheme: dark;
+  --brand-gradient: linear-gradient(
+    110deg,
+    var(--color-lime),
+    var(--color-matcha) 50%,
+    var(--color-mint)
+  );
 }
 
 * {
@@ -120,18 +145,18 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* Soft ambient glow behind the app */
+/* A soft green glow at the top of the app */
 .app-backdrop {
   background:
     radial-gradient(
       60rem 30rem at 15% -10%,
-      color-mix(in srgb, var(--color-primary) 12%, transparent),
-      transparent 60%
+      color-mix(in srgb, var(--color-matcha) 12%, transparent),
+      transparent 70%
     ),
     radial-gradient(
-      50rem 30rem at 110% 10%,
-      color-mix(in srgb, var(--color-secondary) 7%, transparent),
-      transparent 60%
+      50rem 28rem at 90% -15%,
+      color-mix(in srgb, var(--color-mint) 8%, transparent),
+      transparent 70%
     ),
     var(--color-background);
 }
@@ -172,64 +197,34 @@ body {
   @apply mx-auto container max-w-3xl;
 }
 
-.text-gradient {
-  @apply text-transparent bg-clip-text bg-linear-to-b from-primary-light to-primary;
+/* The brand gradient, on text or as a fill (the wordmark, progress bars) */
+@utility text-brand {
+  background-image: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-brand {
+  background-image: var(--brand-gradient);
 }
 
 /* Card surface used across the app */
 @utility card {
   background-color: var(--color-surface-card);
   border: 1px solid var(--color-border);
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   box-shadow: var(--shadow-card);
 }
 
 @utility glass {
   background-color: color-mix(
     in srgb,
-    var(--color-surface-card) 72%,
+    var(--color-surface-card) 75%,
     transparent
   );
   backdrop-filter: blur(16px) saturate(140%);
   -webkit-backdrop-filter: blur(16px) saturate(140%);
-}
-
-/* Spinner styles */
-@utility spinner {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 0;
-  color: var(--color-primary);
-}
-
-@utility spinner-ring {
-  display: block;
-  border: 3px solid color-mix(in srgb, currentColor 18%, transparent);
-  border-top-color: currentColor;
-  border-radius: 9999px;
-  animation: spin 0.8s linear infinite;
-}
-
-@utility spinner-sm {
-  & .spinner-ring {
-    width: 24px;
-    height: 24px;
-  }
-}
-
-@utility spinner-md {
-  & .spinner-ring {
-    width: 40px;
-    height: 40px;
-  }
-}
-
-@utility spinner-lg {
-  & .spinner-ring {
-    width: 64px;
-    height: 64px;
-  }
 }
 
 /* Blink animation for loading indicators */

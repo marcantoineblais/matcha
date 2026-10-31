@@ -76,7 +76,6 @@ export default function FileCopyStatus({
           value={progress}
           isAnimated
           trackClassName="h-2.5"
-          className="bg-linear-to-r from-primary to-primary-light"
         />
 
         <div className="grid grid-cols-2 gap-3">

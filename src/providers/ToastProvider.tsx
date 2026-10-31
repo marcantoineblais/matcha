@@ -245,7 +245,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
         key={toast.id}
         className={twJoin(
           "flex items-start gap-3 px-4 py-3",
-          "cursor-pointer rounded-xl border bg-surface-card shadow-2xl shadow-black/60 backdrop-blur",
+          "cursor-pointer rounded-2xl border bg-surface-card shadow-2xl shadow-black/60 backdrop-blur",
           style.cardClassName,
           "opacity-100 transition-opacity duration-500",
           "data-[collapsed=true]:-mt-12 data-[collapsed=true]:opacity-90",

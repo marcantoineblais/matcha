@@ -25,7 +25,7 @@ export default function Chip({
   return (
     <span
       className={twMerge(
-        "inline-flex items-center gap-1 h-5 px-1.5 rounded-md text-[11px] font-medium ring-1 ring-inset whitespace-nowrap",
+        "inline-flex items-center gap-1 h-5 px-1.5 rounded-md text-[11px] font-semibold ring-1 ring-inset whitespace-nowrap",
         mono && "font-mono tracking-tight",
         chipColors[color],
         className,

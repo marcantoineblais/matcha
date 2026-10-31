@@ -5,7 +5,7 @@ import type { SessionData } from "@/src/providers/session-provider";
  * are per browser, cost no request when changed, and the server can read
  * them while rendering so pages arrive with the right values.
  */
-export const PREFS_COOKIE_NAME = "jelly-prefs";
+export const PREFS_COOKIE_NAME = "matcha-prefs";
 export const PREFS_MAX_AGE_S = 60 * 60 * 24 * 365;
 
 function parseJson(value: string): unknown {

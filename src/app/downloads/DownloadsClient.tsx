@@ -288,7 +288,7 @@ export default function DownloadsClient({ indexers }: DownloadsClientProps) {
               ariaLabel="Clear results"
               size="sm"
               onClick={clearLastSearch}
-              className="size-7 rounded-lg flex items-center justify-center hover:bg-surface-hover shrink-0"
+              className="size-7 rounded-full flex items-center justify-center hover:bg-surface-hover shrink-0"
             />
           </div>
         )

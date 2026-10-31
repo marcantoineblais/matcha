@@ -1,8 +1,8 @@
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Figtree, JetBrains_Mono } from "next/font/google";
 
-export const inter = Inter({
+export const figtree = Figtree({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-figtree",
   display: "swap",
 });
 

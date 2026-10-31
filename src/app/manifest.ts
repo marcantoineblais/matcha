@@ -2,19 +2,31 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Jelly",
-    short_name: "Jelly",
-    description: "Media files manager for Jellyfin",
+    name: "Matcha",
+    short_name: "Matcha",
+    description: "Media files manager for Mochi",
     start_url: "/",
     display: "standalone",
-    background_color: "#090d0c",
-    theme_color: "#090d0c",
+    background_color: "#11160f",
+    theme_color: "#11160f",
     orientation: "portrait-primary",
     icons: [
       {
-        src: "/favicon.ico",
+        src: "/icon.svg",
         sizes: "any",
-        type: "image/x-icon",
+        type: "image/svg+xml",
+        purpose: "any",
+      },
+      {
+        src: "/icon-192.png",
+        sizes: "192x192",
+        type: "image/png",
+        purpose: "any",
+      },
+      {
+        src: "/icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
         purpose: "any",
       },
     ],

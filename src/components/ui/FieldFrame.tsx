@@ -8,7 +8,7 @@ import Label from "./Label";
 
 /** Shared look of every text-like input (text, number, password, autocomplete). */
 export const fieldInputClassName = twJoin(
-  "block w-full min-w-0 h-10 px-3 rounded-xl border border-border bg-surface/60 text-sm",
+  "block w-full min-w-0 h-10 px-3.5 rounded-2xl border border-border bg-background/60 text-sm",
   "placeholder:text-text-muted hover:border-border-strong disabled:opacity-50",
   "transition-[border-color,box-shadow,background-color] duration-200",
   "focus:border-primary/70 focus:outline-none focus:ring-4 focus:ring-primary/15",
@@ -88,7 +88,7 @@ export function FieldClearButton({
       ariaLabel="Clear"
       onClick={onClick}
       isDisabled={isDisabled}
-      className="size-7 rounded-lg flex items-center justify-center hover:bg-surface-hover"
+      className="size-7 rounded-full flex items-center justify-center hover:bg-surface-hover"
     />
   );
 }

@@ -1,8 +1,13 @@
-"use client";
-
-import { useMemo } from "react";
 import { twMerge } from "tailwind-merge";
+import Matcha from "../brand/Matcha";
 
+const sizeClasses = {
+  sm: "w-10",
+  md: "w-14",
+  lg: "w-20",
+};
+
+/** Loading: the mascot bobbing, never a generic spinner. */
 export default function Spinner({
   size = "md",
   className = "",
@@ -10,24 +15,18 @@ export default function Spinner({
   size?: "sm" | "md" | "lg";
   className?: string;
 }) {
-  const sizeClass = useMemo(() => {
-    switch (size) {
-      case "sm":
-        return "spinner-sm";
-      case "lg":
-        return "spinner-lg";
-      default:
-        return "spinner-md";
-    }
-  }, [size]);
-
   return (
     <div
-      className={twMerge("spinner", sizeClass, className)}
+      className={twMerge("inline-flex justify-center", className)}
       role="status"
       aria-label="Loading"
     >
-      <span className="spinner-ring" aria-hidden="true" />
+      <Matcha
+        className={twMerge(
+          "animate-float drop-shadow-[0_8px_16px_rgb(181_227_168/0.25)]",
+          sizeClasses[size],
+        )}
+      />
     </div>
   );
 }

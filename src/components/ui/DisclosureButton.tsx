@@ -32,10 +32,10 @@ export default function DisclosureButton({
       aria-expanded={isOpen}
       data-open={isOpen || undefined}
       className={twJoin(
-        "h-10 px-3.5 shrink-0 rounded-xl border border-border bg-surface-elevated shadow-btn",
+        "h-10 px-4 shrink-0 rounded-full bg-surface-elevated shadow-btn",
         "inline-flex items-center justify-center gap-2 text-sm font-medium text-text-secondary cursor-pointer",
         "transition-[background-color,border-color,color,transform] duration-200 hover:bg-surface-hover hover:text-text active:scale-[0.97]",
-        "data-open:border-primary/40 data-open:text-primary-light",
+        "data-open:bg-primary/15 data-open:text-primary-light",
       )}
     >
       <FontAwesomeIcon icon={icon} className="text-xs" />

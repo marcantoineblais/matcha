@@ -90,10 +90,10 @@ export default function Modal({
             transition={{ duration: DURATION, ease: EASE_OUT }}
             onPointerDown={(e) => e.stopPropagation()}
             data-loading={isLoading || undefined}
-            className="max-md:w-full md:min-w-md w-max max-w-2xl max-h-[calc(100dvh-1rem)] flex flex-col bg-surface-card border border-border-strong rounded-2xl shadow-2xl shadow-black/70 overflow-hidden data-loading:opacity-0"
+            className="max-md:w-full md:min-w-md w-max max-w-2xl max-h-[calc(100dvh-1rem)] flex flex-col bg-surface-card border border-border rounded-3xl shadow-2xl shadow-black/70 overflow-hidden data-loading:opacity-0"
           >
             <div className="w-full flex items-center justify-between px-5 pt-4 pb-3 shrink-0">
-              <h2 className="text-base font-semibold text-text">{title}</h2>
+              <h2 className="text-lg font-bold tracking-tight text-text">{title}</h2>
               <IconButton
                 onClick={onClose}
                 icon={faXmark}
@@ -105,7 +105,7 @@ export default function Modal({
               {children}
             </div>
             {footer && (
-              <div className="w-full flex justify-end gap-2 px-5 py-3.5 border-t border-border bg-surface/40 shrink-0">
+              <div className="w-full flex justify-end gap-2 px-5 py-3.5 border-t border-border shrink-0">
                 {footer}
               </div>
             )}

@@ -2,8 +2,7 @@
 
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import Image from "next/image";
-import Logo from "@/src/assets/img/logo.png";
+import Matcha from "@/src/components/brand/Matcha";
 import H1 from "@/src/components/elements/H1";
 import useFetch from "@/src/hooks/use-fetch";
 import useValidation from "@/src/hooks/use-validation";
@@ -72,21 +71,12 @@ export default function LoginPage() {
         {...fadeInUp}
         className="w-full max-w-sm card rounded-3xl p-7"
       >
-        <div className="flex justify-center mb-5">
-          <span className="relative size-16 rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-glow">
-            <Image
-              src={Logo}
-              alt="Jelly"
-              fill
-              sizes="64px"
-              className="object-cover"
-              priority
-            />
-          </span>
+        <div className="flex justify-center mb-4">
+          <Matcha className="w-20 animate-float drop-shadow-[0_10px_18px_rgb(181_227_168/0.25)]" />
         </div>
         <H1 className="w-full text-center">Sign in</H1>
         <p className="text-center text-text-muted text-sm mt-1 mb-8">
-          Welcome back to Jelly
+          Welcome back to Matcha
         </p>
 
         <form
