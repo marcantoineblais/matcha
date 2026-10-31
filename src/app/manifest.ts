@@ -10,13 +10,10 @@ export default function manifest(): MetadataRoute.Manifest {
     background_color: "#090b0a",
     theme_color: "#090b0a",
     orientation: "portrait-primary",
+    // The cup alone on a transparent background, as Jelly's icon was:
+    // Android plates it on the home screen and centres it on
+    // background_color while the app opens.
     icons: [
-      {
-        src: "/icon.svg",
-        sizes: "any",
-        type: "image/svg+xml",
-        purpose: "any",
-      },
       {
         src: "/icon-192.png",
         sizes: "192x192",
@@ -28,20 +25,6 @@ export default function manifest(): MetadataRoute.Manifest {
         sizes: "512x512",
         type: "image/png",
         purpose: "any",
-      },
-      // Full bleed, so Android shapes it like its other icons instead of
-      // shrinking it onto a plate.
-      {
-        src: "/icon-maskable-192.png",
-        sizes: "192x192",
-        type: "image/png",
-        purpose: "maskable",
-      },
-      {
-        src: "/icon-maskable-512.png",
-        sizes: "512x512",
-        type: "image/png",
-        purpose: "maskable",
       },
     ],
   };
