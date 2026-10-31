@@ -4,7 +4,7 @@
 # Matcha: use http://matcha-gluetun:<port> for each (JACKETT_PORT, FLARESOLVERR_PORT, QBITTORRENT_WEBUI_PORT).
 # FIREWALL_INPUT_PORTS: Gluetun blocks inbound by default; allow these ports so matcha can reach qBittorrent/Jackett/FlareSolverr.
 # Image: CI pins :latest to the commit's tag on the deploy branch, which the Portainer stack follows.
-x-common-image: &common-image ghcr.io/marcantoineblais/matcha:latest
+x-common-image: &common-image ghcr.io/marcantoineblais/matcha:d1202211e822cb66ddb799eaa2077c00930a759f
 
 services:
   gluetun:
