@@ -135,7 +135,7 @@ function buildDestinationPath(file: MediaFile): string | null {
     return path.join(
       basepath,
       folderName,
-      // Jellyfin convention: season 0 (and unknown seasons) go in "Specials"
+      // Season 0 (and unknown seasons) go in "Specials", which Mochi reads as season 0
       season ? `Season ${formatNumber(season)}` : "Specials",
       filename + file.ext,
     );

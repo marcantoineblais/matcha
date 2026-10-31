@@ -1,15 +1,15 @@
 # Per-machine: set host paths in .env (DOWNLOADS_PATH, ENCODE_PATH, TV_SHOWS_PATH, etc.).
 # qBittorrent: set Default save path = /downloads in Web UI. Incomplete use default downloads/temp.
 # VPN: set WIREGUARD_PRIVATE_KEY (Proton VPN WireGuard) in .env. Optional: SERVER_COUNTRIES (e.g. Canada). Ports: QBITTORRENT_WEBUI_PORT, JACKETT_PORT, FLARESOLVERR_PORT.
-# Jelly: use http://jelly-gluetun:<port> for each (JACKETT_PORT, FLARESOLVERR_PORT, QBITTORRENT_WEBUI_PORT).
-# FIREWALL_INPUT_PORTS: Gluetun blocks inbound by default; allow these ports so jelly can reach qBittorrent/Jackett/FlareSolverr.
+# Matcha: use http://matcha-gluetun:<port> for each (JACKETT_PORT, FLARESOLVERR_PORT, QBITTORRENT_WEBUI_PORT).
+# FIREWALL_INPUT_PORTS: Gluetun blocks inbound by default; allow these ports so matcha can reach qBittorrent/Jackett/FlareSolverr.
 # Image: CI pins :latest to the commit's tag on the deploy branch, which the Portainer stack follows.
-x-common-image: &common-image ghcr.io/marcantoineblais/jelly:latest
+x-common-image: &common-image ghcr.io/marcantoineblais/matcha:latest
 
 services:
   gluetun:
     image: qmcgaw/gluetun:latest
-    container_name: jelly-gluetun
+    container_name: matcha-gluetun
     cap_add:
       - NET_ADMIN
     devices:
@@ -46,7 +46,7 @@ services:
     # anti-detect browser). More reliable against modern Cloudflare than the
     # original FlareSolverr Chromium approach. Same API/port — no other changes needed.
     image: ghcr.io/thephaseless/byparr:latest
-    container_name: jelly-flaresolverr
+    container_name: matcha-flaresolverr
     network_mode: service:gluetun
     user: ${PUID:-1000}:${PGID:-1000}
     sysctls:
@@ -62,7 +62,7 @@ services:
 
   jackett:
     image: linuxserver/jackett:latest
-    container_name: jelly-jackett
+    container_name: matcha-jackett
     network_mode: service:gluetun
     sysctls:
       - net.ipv6.conf.all.disable_ipv6=1
@@ -82,7 +82,7 @@ services:
 
   qbittorrent:
     image: linuxserver/qbittorrent:latest
-    container_name: jelly-qbittorrent
+    container_name: matcha-qbittorrent
     network_mode: service:gluetun
     sysctls:
       - net.ipv6.conf.all.disable_ipv6=1
@@ -100,12 +100,12 @@ services:
         condition: service_started
     restart: unless-stopped
 
-  jelly:
+  matcha:
     image: *common-image
-    container_name: jelly
+    container_name: matcha
     env_file: stack.env
     volumes:
-      - /opt/jelly/config.json:/app/config.json:ro
+      - /opt/matcha/config.json:/app/config.json:ro
       # Add host paths for file-server to read/write
       - /mnt/encodes:/mnt/encodes
       - /mnt/media:/mnt/media
@@ -120,7 +120,7 @@ services:
 
   socket-server:
     image: *common-image
-    container_name: jelly-socket-server
+    container_name: matcha-socket-server
     command: ["node", "dist-servers/socket-server.mjs"]
     env_file: stack.env
     networks:
@@ -130,12 +130,12 @@ services:
 
   files-server:
     image: *common-image
-    container_name: jelly-files-server
+    container_name: matcha-files-server
     command: ["node", "dist-servers/file-server.mjs"]
     env_file: stack.env
     user: ${PUID:-1000}:${PGID:-1000}
     volumes:
-      - /opt/jelly/config.json:/app/config.json:ro
+      - /opt/matcha/config.json:/app/config.json:ro
       # Add host paths for file-server to read/write
       - /mnt/downloads:/mnt/downloads
       - /mnt/encodes:/mnt/encodes

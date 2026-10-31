@@ -63,6 +63,6 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy
 
-Jelly runs as a Portainer git stack from `docker-compose.yml`, which follows the `deploy` branch. There are no versions to bump: on every push to `main`, CI (`.github/workflows/build-and-release.yml`) runs lint, pushes `ghcr.io/marcantoineblais/jelly` tagged with the commit SHA and `latest`, then force-pushes `deploy` with the compose file pinned to that SHA. Portainer polls `deploy` and recreates only the Jelly containers, since the other images don't change. Pushes to `staging` do the same with the `staging` tag and the `deploy-staging` branch.
+Matcha runs as a Portainer git stack from `docker-compose.yml`, which follows the `deploy` branch. There are no versions to bump: on every push to `main`, CI (`.github/workflows/build-and-release.yml`) runs lint, pushes `ghcr.io/marcantoineblais/matcha` tagged with the commit SHA and `latest`, then force-pushes `deploy` with the compose file pinned to that SHA. Portainer polls `deploy` and recreates only the Matcha containers, since the other images don't change. Pushes to `staging` do the same with the `staging` tag and the `deploy-staging` branch.
 
 Don't commit to `deploy` or `deploy-staging`: CI overwrites them on every release.
